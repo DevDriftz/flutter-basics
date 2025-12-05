@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Material(
         child: Center(
-          child: Text('Hello World',style: TextStyle(
+          child: Text('this is Day 2 and we will make changes in this',style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.blueAccent,
           ),),
