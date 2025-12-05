@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/pages/home_page.dart';
 
-void main(List<String> args) {
-  runApp(const LoginPage());
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // optional
+      home: const LoginPage(),
+    );
+  }
 }
 
 class LoginPage extends StatelessWidget {
@@ -53,32 +65,19 @@ class LoginPage extends StatelessWidget {
 
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const HomePage()));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
                   },
-                  child: const Text("Login"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.deepPurple,
                     foregroundColor: Colors.white,
                   ),
+                  child: const Text("Login"),
                 ),
-
-                const SizedBox(height: 30),
-
-                // ⭐ NO-RIPPLE CIRCLE IMAGE BUTTON ADDED HERE
-                GestureDetector(
-                  onTap: () {
-                    print("Circle image tapped");
-                  },
-                  child: ClipOval(
-                    child: Image.asset(
-                      "assets/images/profile_icon.png", // <-- your image here
-                      width: 40,
-                      height: 40,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
               ],
             ),
           ),
